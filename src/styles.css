@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+
+  --color-paper: #f3eee3;
+  --color-cream: #fffcf7;
+  --color-forest: #143d2c;
+  --color-forest-mid: #1c4f3a;
+  --color-forest-fg: #f3eee3;
+  --color-ink: #1a1712;
+  --color-muted: #6e6758;
+  --color-gold: #b0893a;
+  --color-gold-soft: #e8d5a3;
+  --color-line: #d9cdb8;
+  --color-danger: #8a2f2f;
+  --color-danger-fg: #fff8f6;
+  --color-ok: #1f6b45;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+
+  --shadow-border:
+    0px 0px 0px 1px rgba(26, 23, 18, 0.07),
+    0px 1px 2px -1px rgba(26, 23, 18, 0.06),
+    0px 2px 8px 0px rgba(26, 23, 18, 0.05);
+  --shadow-border-hover:
+    0px 0px 0px 1px rgba(26, 23, 18, 0.1),
+    0px 1px 2px -1px rgba(26, 23, 18, 0.08),
+    0px 4px 12px 0px rgba(26, 23, 18, 0.07);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.paper-grain {
+  background-color: var(--color-paper);
+  background-image:
+    radial-gradient(rgba(26, 23, 18, 0.035) 0.6px, transparent 0.6px),
+    linear-gradient(180deg, rgba(255, 252, 247, 0.5), rgba(243, 238, 227, 0.2));
+  background-size: 7px 7px, 100% 100%;
+}
+
+.hero-panel {
+  background-color: var(--color-forest);
+  background-image:
+    linear-gradient(180deg, rgba(20, 61, 44, 0.2), rgba(10, 28, 20, 0.45)),
+    radial-gradient(ellipse 80% 60% at 80% -10%, rgba(176, 137, 58, 0.22), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(232, 213, 163, 0.08), transparent 50%);
+}
+
+.certificate-sheet {
+  position: relative;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  border: 10px solid var(--color-forest);
+  box-shadow: var(--shadow-border);
+}
+
+.certificate-sheet::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 6px;
+  border: 2px solid var(--color-gold);
+}
+
+.certificate-sheet::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 12px;
+  border: 1px solid color-mix(in oklab, var(--color-gold) 55%, transparent);
+}
+
+.certificate-watermark {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 12vw, 7rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--color-danger) 16%, transparent);
+  transform: rotate(-18deg);
+  font-weight: 700;
+}
+
+.stagger-in > * {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: rise-in 500ms ease-out forwards;
+}
+
+.stagger-in > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-in > *:nth-child(2) { animation-delay: 90ms; }
+.stagger-in > *:nth-child(3) { animation-delay: 180ms; }
+.stagger-in > *:nth-child(4) { animation-delay: 270ms; }
+.stagger-in > *:nth-child(5) { animation-delay: 360ms; }
+
+@keyframes rise-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.registry-table {
+  min-width: 40rem;
+}
+
+@media print {
+  body {
+    background: white !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .certificate-sheet {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+}
+
