@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, ShieldCheck, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Crest } from "@/components/crest";
+import { Crest, BrandLogo } from "@/components/crest";
 import { Button } from "@/components/ui/button";
 import { signOut } from "@/lib/auth/client";
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
@@ -113,8 +113,8 @@ export function SiteFooter() {
     <footer className="no-print border-t border-line bg-cream">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-start gap-3">
-          <ShieldCheck className="mt-0.5 size-5 text-gold" />
-          <div>
+          <BrandLogo className="h-14 max-w-[260px]" />
+          <div className="hidden sm:block">
             <p className="font-display text-lg font-semibold text-forest">
               {INSTITUTION_SHORT} Akwanga Centre
             </p>

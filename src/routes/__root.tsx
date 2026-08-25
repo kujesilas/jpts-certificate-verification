@@ -31,7 +31,7 @@ export const Route = createRootRoute({
         content:
           "Official web-based certificate verification for Joint Professional Training and Support, Akwanga Centre, Nasarawa State.",
       },
-      { name: "theme-color", content: "#143D2C" },
+      { name: "theme-color", content: "#006030" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },

@@ -9,19 +9,26 @@ export function Crest({ className, variant = "gold" }: { className?: string; var
       className={cn("shrink-0", className)}
       aria-hidden="true"
     >
-      <circle cx="40" cy="40" r="36" fill="none" stroke={stroke} strokeWidth="2.2" />
-      <circle cx="40" cy="40" r="30" fill="none" stroke={stroke} strokeWidth="0.8" />
+      <circle cx="40" cy="44" r="22" fill="none" stroke={stroke} strokeWidth="3.2" />
+      <ellipse cx="40" cy="44" rx="10" ry="22" fill="none" stroke={stroke} strokeWidth="1.6" />
+      <path d="M18 44h44" stroke={stroke} strokeWidth="1.6" />
       <path
-        d="M40 16c8 8 12 16 12 26 0 10-5 18-12 22-7-4-12-12-12-22 0-10 4-18 12-26z"
+        d="M22 18h36l-6 10H28z"
         fill={fill}
       />
-      <path
-        d="M18 38c8-2 14-8 22-8s14 6 22 8c-2 14-12 24-22 28-10-4-20-14-22-28z"
-        fill="none"
-        stroke={stroke}
-        strokeWidth="1.4"
-      />
-      <path d="M28 34h24M32 40h16M36 46h8" stroke="var(--color-forest)" strokeWidth="1.6" />
+      <path d="M40 18v-6" stroke={stroke} strokeWidth="2.4" strokeLinecap="round" />
+      <path d="M40 12l10 3" stroke={stroke} strokeWidth="2" strokeLinecap="round" />
+      <rect x="34" y="66" width="12" height="4" rx="1" fill={fill} />
     </svg>
+  );
+}
+
+export function BrandLogo({ className }: { className?: string }) {
+  return (
+    <img
+      src="/jpts-logo.png"
+      alt="Joint Professionals Training and Support International"
+      className={cn("h-12 w-auto max-w-[220px] object-contain object-left", className)}
+    />
   );
 }

@@ -8,7 +8,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { useState, type FormEvent } from "react";
-import { Crest } from "@/components/crest";
+import { BrandLogo } from "@/components/crest";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { prepareRegistry } from "@/lib/cert-api";
@@ -63,16 +63,11 @@ function Home() {
             onSubmit={onSubmit}
             className="rounded-xl bg-cream p-5 text-ink shadow-[var(--shadow-border)] sm:p-7"
           >
-            <div className="flex items-center gap-3">
-              <Crest className="size-10" />
-              <div>
-                <p className="font-display text-xl font-semibold text-forest">
-                  Verify a certificate
-                </p>
-                <p className="text-sm text-muted">
-                  Enter the certificate number or 8-character code
-                </p>
-              </div>
+            <div>
+              <BrandLogo className="h-10 max-w-[180px] sm:h-12 sm:max-w-[220px]" />
+              <p className="mt-2 text-sm text-muted">
+                Enter the certificate number or 8-character code
+              </p>
             </div>
             <label className="mt-5 block text-sm font-medium" htmlFor="cert-query">
               Certificate number
